@@ -62,7 +62,7 @@
         this.time = time;
 
         $('#' + containerID).append("<div id='circle1' class='circle'></div>");
-        $('#' + containerID).append("<div id='circleFinal' class='circle quadrant2'></div>");
+        $('#' + containerID).append("<div id='circleFinal' class='circle quadrant4'></div>");
         $('#' + containerID).append("<div id='circle4' class='circle quadrant4'></div>");
         $('#' + containerID).append("<div id='circle3' class='circle quadrant3'></div>");
         $('#' + containerID).append("<div id='circle2' class='circle quadrant2'></div>");
@@ -98,13 +98,11 @@
         setTimeout(function() {
           $('#circle2').hide();
           $('#circle3').removeClass('quadrant3').addClass('quadrant4');
-          $('#circleFinal').removeClass('quadrant2').addClass('quadrant3');
         }, this.time*1000/4);
 
         setTimeout(function() {
           $('#circle3').hide();
           $('#circle4').removeClass('quadrant4').addClass('quadrant1');
-          $('#circleFinal').removeClass('quadrant3').addClass('quadrant4');
         }, 2*this.time*1000/4);
 
         setTimeout(function() {
@@ -120,7 +118,7 @@
 
 
       $(function() {
-        var timer = new Timer('container', '100px', '#ff3d3d', '#1fb4ff', 10);
+        var timer = new Timer('container', '100px', '#ff3d3d', '#1fb4ff', 8);
 
         $('html').keypress(function(event) {
           if ( event.which == 32 ) {  // spacebar
