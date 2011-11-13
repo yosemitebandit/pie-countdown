@@ -98,22 +98,22 @@
         setTimeout(function() {
           $('#circle2').hide();
           $('#circle3').removeClass('quadrant3').addClass('quadrant4');
-        }, this.time*1000/4);
+        }, _timer.time*1000/4);
 
         setTimeout(function() {
           $('#circle3').hide();
           $('#circle4').removeClass('quadrant4').addClass('quadrant1');
-        }, 2*this.time*1000/4);
+        }, 2*_timer.time*1000/4);
 
         setTimeout(function() {
           $('#circle4').hide();
           $('#circleFinal').removeClass('quadrant4').addClass('quadrant1');
-        }, 3*this.time*1000/4);
+        }, 3*_timer.time*1000/4);
 
         setTimeout(function() {
           $('#circle1').hide();
           $('#circleFinal').hide();
-        }, this.time*1000);
+        }, _timer.time*1000);
       }
 
 
