@@ -1,6 +1,7 @@
 circle-timer
 
 a filled circle is emptied (countdown):
+
  - imagine four circles on top of another
  - each is transparent except for a 90 degree wedge which is opaque
  - the opaque wedge of each circle is in a different quadrant
