@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='jquery.min.js'></script>
+
+    <style>
+
+      body {
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      #container {
+        width: 800px;
+        height: 400px;
+      }
+
+      .circle {
+        position: absolute;
+        margin: 100px 0;
+        width: 0px;
+        height: 0px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      .quadrant4 {
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        transform: rotate(135deg);
+      }
+      .quadrant3 {
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+      }
+      .quadrant2 {
+        -webkit-transform: rotate(315deg);
+        -moz-transform: rotate(315deg);
+        -o-transform: rotate(315deg);
+        -ms-transform: rotate(315deg);
+        transform: rotate(315deg);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id='container'>
+    </div>
+
+    <script>
+
+      function Timer(containerID, size, timerColor, backgroundColor, time) {
+        this.time = time;
+
+        $('#' + containerID).append("<div id='circle1' class='circle'></div>");
+        $('#' + containerID).append("<div id='circleFinal' class='circle quadrant2'></div>");
+        $('#' + containerID).append("<div id='circle4' class='circle quadrant4'></div>");
+        $('#' + containerID).append("<div id='circle3' class='circle quadrant3'></div>");
+        $('#' + containerID).append("<div id='circle2' class='circle quadrant2'></div>");
+
+        $('.circle').css({
+          'border-top': size + ' solid ' + timerColor
+          , 'border-right': size + ' solid transparent'
+          , 'border-bottom': size + ' solid transparent'
+          , 'border-left': size + ' solid transparent'
+          , 'border-radius': size
+        });
+
+        $('#circleFinal').css({
+          'border-top': size + ' solid ' + backgroundColor
+        });
+
+        // any further changes to the rotation happen over a certain time period
+        $('.circle').css({
+          '-webkit-transition': '-webkit-transform ' + time/4 + 's linear'
+          , '-moz-transition': '-moz-transform ' + time/4 + 's linear'
+          , '-o-transition': '-o-transform ' + time/4 + 's linear'
+          , '-ms-transition': '-ms-transform ' + time/4 + 's linear'
+          , 'transition': 'transform ' + time/4 + 's linear'
+        });
+      }
+
+
+      Timer.prototype.countdown = function() {
+        $('#circle2').removeClass('quadrant2').addClass('quadrant3');
+
+        var _timer = this;
+
+        setTimeout(function() {
+          $('#circle2').hide();
+          $('#circle3').removeClass('quadrant3').addClass('quadrant4');
+          $('#circleFinal').removeClass('quadrant2').addClass('quadrant3');
+        }, this.time*1000/4);
+
+        setTimeout(function() {
+          $('#circle3').hide();
+          $('#circle4').removeClass('quadrant4').addClass('quadrant1');
+          $('#circleFinal').removeClass('quadrant3').addClass('quadrant4');
+        }, 2*this.time*1000/4);
+
+        setTimeout(function() {
+          $('#circle4').hide();
+          $('#circleFinal').removeClass('quadrant4').addClass('quadrant1');
+        }, 3*this.time*1000/4);
+
+        setTimeout(function() {
+          $('#circle1').hide();
+          $('#circleFinal').hide();
+        }, this.time*1000);
+      }
+
+
+      $(function() {
+        var timer = new Timer('container', '10px', 'blue', 'white', 10);
+
+        $('html').keypress(function(event) {
+          if ( event.which == 32 ) {  // spacebar
+            timer.countdown();
+          }
+        });
+      });
+
+    </script>
+
+  </body>
+</html>
+
+
