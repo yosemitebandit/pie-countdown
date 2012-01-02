@@ -22,7 +22,5 @@ would-be-nice:
 
  - fix the thin quarter-ring left visible in the quadrant I circle as the final circle rotates over top
    - perhaps make the final circle somewhat larger
- - better demo with some js to make different timers
+ - better demo with interactive input
  - better positioning of the timer -- guarantee centering within the container div
-
-
