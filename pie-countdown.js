@@ -3,7 +3,7 @@ function Timer(containerID, size, timerColor, backgroundColor, time) {
     this.time = time;
 
     $('#' + containerID).append("<div id='circle1' class='circle'></div>");
-    $('#' + containerID).append("<div id='circleFinal' class='circle quadrant4'></div>");
+    $('#' + containerID).append("<div id='circleMask' class='circle quadrant4'></div>");
     $('#' + containerID).append("<div id='circle4' class='circle quadrant4'></div>");
     $('#' + containerID).append("<div id='circle3' class='circle quadrant3'></div>");
     $('#' + containerID).append("<div id='circle2' class='circle quadrant2'></div>");
@@ -16,7 +16,7 @@ function Timer(containerID, size, timerColor, backgroundColor, time) {
         , 'border-radius': size
     });
 
-    $('#circleFinal').css({
+    $('#circleMask').css({
         'border-top': size + ' solid ' + backgroundColor
     });
 
@@ -48,11 +48,11 @@ Timer.prototype.start = function() {
 
     setTimeout(function() {
         $('#circle4').hide();
-        $('#circleFinal').removeClass('quadrant4').addClass('quadrant1');
+        $('#circleMask').removeClass('quadrant4').addClass('quadrant1');
     }, 3*_timer.time*1000/4);
 
     setTimeout(function() {
         $('#circle1').hide();
-        $('#circleFinal').hide();
+        $('#circleMask').hide();
     }, _timer.time*1000);
 }
