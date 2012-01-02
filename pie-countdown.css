@@ -1,6 +1,5 @@
 .circle {
   position: absolute;
-  margin: 100px 0;
   width: 0px;
   height: 0px;
   -webkit-transform: rotate(45deg);
