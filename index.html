@@ -3,32 +3,28 @@
   <head>
     <link rel='stylesheet' href='pie-countdown.css' />
 
-    <style>
-      body {
-        width: 800px;
-        margin: 0 auto;
-      }
-
-      #container {
-        width: 800px;
-        height: 400px;
-      }
-    </style>
-
   </head>
 
   <body>
-    <div id='container'></div>
+    
+    <div id='pie-plate'></div>
     
     <script src='jquery.min.js'></script>
     <script src='pie-countdown.js'></script>
+    
     <script>
       $(function() {
-        var timer = new Timer('container', '100px', '#ff3d3d', '#1fb4ff', 8*60);
+        var timer = new Timer(
+          'pie-plate'   // id of the div where we're dropping the pie
+          , '100px'   // radius of the pie
+          , '#ff3d3d'   // color of the pie
+          , '#1fb4ff'   // background color (color of the masking quadrant)
+          , 8*60   // seconds on the clock
+        );
 
         $('html').keypress(function(event) {
           if ( event.which == 32 ) {  // spacebar
-            timer.countdown();
+            timer.start();
           }
         });
       });

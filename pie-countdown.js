@@ -31,7 +31,7 @@ function Timer(containerID, size, timerColor, backgroundColor, time) {
 }
 
 
-Timer.prototype.countdown = function() {
+Timer.prototype.start = function() {
     $('#circle2').removeClass('quadrant2').addClass('quadrant3');
 
     var _timer = this;
