@@ -24,6 +24,11 @@ function Timer(containerID, size, timerColor, backgroundColor, time) {
         'top': '-' + 8*size + 'px'
     });
 
+    $('#' + containerID).css({
+        width: 2*size + 'px'
+        , height: 2*size + 'px'
+    });
+
     $('.circle').css({
         'border-top': size + 'px solid ' + timerColor
         , 'border-right': size + 'px solid transparent'
