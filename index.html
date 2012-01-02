@@ -1,15 +1,28 @@
 <!doctype html>
 <html>
   <head>
-    <link rel='stylesheet' href='pie-countdown.css' />
+    <link rel='stylesheet' href='css/pie-countdown.css' />
+    <link rel='stylesheet' href='css/bootstrap.min.css' />
   </head>
 
   <body>
-    <p>press spacebar to start</p>
-    <div id='pie-plate'></div>
-    
-    <script src='jquery.min.js'></script>
-    <script src='pie-countdown.js'></script>
+    <div class='container'>
+      <div class='row'>
+        <h3>pie-countdown</h3>
+        <p>
+          <a href='#'>about</a>
+          &nbsp;|&nbsp;
+          <a href='https://github.com/yosemitebandit/pie-countdown'>github</a>
+        </p>
+        <p>press space to start</p>
+
+        <div id='pie-plate'></div>
+
+      </div>
+    </div>
+        
+    <script src='js/jquery.min.js'></script>
+    <script src='js/pie-countdown.js'></script>
     
     <script>
       $(function() {
