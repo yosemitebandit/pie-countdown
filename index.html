@@ -2,11 +2,10 @@
 <html>
   <head>
     <link rel='stylesheet' href='pie-countdown.css' />
-
   </head>
 
   <body>
-    
+    <p>press spacebar to start</p>
     <div id='pie-plate'></div>
     
     <script src='jquery.min.js'></script>
@@ -16,10 +15,10 @@
       $(function() {
         var timer = new Timer(
           'pie-plate'   // id of the div where we're dropping the pie
-          , '100px'   // radius of the pie
+          , 40   // radius of the pie in pixels
           , '#ff3d3d'   // color of the pie
           , '#1fb4ff'   // background color (color of the masking quadrant)
-          , 8*60   // seconds on the clock
+          , 10   // seconds on the clock
         );
 
         $('html').keypress(function(event) {

@@ -8,16 +8,32 @@ function Timer(containerID, size, timerColor, backgroundColor, time) {
     $('#' + containerID).append("<div id='circle3' class='circle quadrant3'></div>");
     $('#' + containerID).append("<div id='circle2' class='circle quadrant2'></div>");
 
+    $('#circleMask').css({
+        'top': '-' + 2*size + 'px'
+    });
+
+    $('#circle4').css({
+        'top': '-' + 4*size + 'px'
+    });
+    
+    $('#circle3').css({
+        'top': '-' + 6*size + 'px'
+    });
+    
+    $('#circle2').css({
+        'top': '-' + 8*size + 'px'
+    });
+
     $('.circle').css({
-        'border-top': size + ' solid ' + timerColor
-        , 'border-right': size + ' solid transparent'
-        , 'border-bottom': size + ' solid transparent'
-        , 'border-left': size + ' solid transparent'
-        , 'border-radius': size
+        'border-top': size + 'px solid ' + timerColor
+        , 'border-right': size + 'px solid transparent'
+        , 'border-bottom': size + 'px solid transparent'
+        , 'border-left': size + 'px solid transparent'
+        , 'border-radius': size + 'px'
     });
 
     $('#circleMask').css({
-        'border-top': size + ' solid ' + backgroundColor
+        'border-top': size + 'px solid ' + backgroundColor
     });
 
     // any further changes to the rotation happen over a certain time period
